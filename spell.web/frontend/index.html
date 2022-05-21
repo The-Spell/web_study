@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>메모장 만들며 부트스트랩 연습</title>
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'East Sea Dokdo', cursive;
+        }
+        .wrap {
+            width: 1000px;
+            margin: auto;
+        }
+        .comment{
+            color: blue;
+            font-weight: bold;
+        }
+        .postingbox{
+            border: solid;
+            border-color: black;
+            border-radius: 10px;
+
+            width: 500px;
+            padding: 30px;
+            margin: 0px auto 30px auto;
+
+            display: none;
+        }
+    </style>
+    <script>
+        function openclose() {
+            let status = $('#post-box').css('display');
+            if (status == 'block') {
+                $('#post-box').hide();
+                $('#btn-posting-box').text('포스팅박스 Close');
+            } else {
+                $('#post-box').show();
+                $('#btn-posting-box').text('포스팅박스 Open');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="jumbotron">
+            <h1 class="display-4">나홀로 링크 메모장!</h1>
+            <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅 하기</a>
+            </p>
+        </div>
+        <div class="postingbox" id="post-box">
+            <div class="form-group">
+                <label">아티클 URL</label>
+                <input type="email" class="form-control" id="article-url" aria-describedby="emailHelp"
+                       placeholder="URL">
+<!--                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">간단 코멘트</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+<!--            <div class="form-check">-->
+<!--                <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--                <label class="form-check-label" for="exampleCheck1">Check me out</label>-->
+<!--            </div>-->
+            <button type="submit" class="btn btn-primary">Comment 저장</button>
+        </div>
+        <div class="card-columns" id="cards-box">
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1556195332-95503f664ced?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80" alt="Card image cap">
+                <div class="card-body cardimg">
+                    <h5 class="card-title"><a href="https://www.naver.com">여기에 기사 제목</a></h5>
+                    <p class="card-text">기사의 요약 내용이 들어감. 가나다라마바사 어쩌구저쩌구 블라블라블라 강약약중간약약강약중간약중간중간약약</p>
+                    <p class="card-text comment">코멘트 란</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>Spell's Shopping</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Dokdo', cursive;
+        }
+        .mallname {
+            font-family: 'Oswald', sans-serif
+        }
+        .middle {
+            width: 1000px;
+            margin: 10px auto 10px auto;
+        }
+        .headsize {
+            font-size: 80px;
+        }
+        .textsize {
+            font-size: 54px;
+        }
+        .imgback {
+            width: 500px;
+            margin: 10px auto 10px auto;
+        }
+        .img {
+            width: 600px;
+            height: 400px;
+
+            border: 2px solid;
+            border-color: black;
+            border-radius: 10px;
+
+            margin: 10px auto 10px auto;
+            padding: 15px;
+        }
+        .orderbox {
+            width: 100px;
+            margin: 25px auto 25px auto;
+            display: block;
+        }
+        .orderfont {
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            read_rate();
+        })
+
+        function order() {
+            alert('주문이 완료되었습니다!');
+            alert('감사합니다!');
+        }
+
+        function read_rate() {
+        $.ajax({
+              type: "GET",
+              url: "http://spartacodingclub.shop/sparta_api/rate",
+              data: {},
+              success: function (response) {
+                  let rate = response['rate'];
+                  let date = response['date'];
+
+                  $('#dollar-rate').text(rate)
+              }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div class="middle">
+        <!--쇼핑몰 이름 구역-->
+        <div>
+            <h1 class="headsize"><strong>Spell's Shopping</strong></h1>
+        </div>
+        <!--상품 이미지 구역-->
+        <div class="imgback">
+            <img class="img" src="https://mblogthumb-phinf.pstatic.net/MjAxODExMDdfMjc4/MDAxNTQxNTcyNDU2NzI5.BPq80dFE25sgOvgwmycE0yZbabU0B6gpF_S8p4OIRI0g.-BsjMq9UClcfnsWkAZjYo6AbZgL2fdoC1o9X5Eli71sg.PNG.siwonjjang7/image.png?type=w800">
+        </div>
+        <!--상품제목 및 가격 구역-->
+        <div>
+            <h2 class="textsize"><strong>딱총나무 지팡이(유니콘 털)</strong>  <span style="font-size:34px">가격: 104갈레온 (한화 563,992원) / 개 </span></h2>
+        </div>
+        <!--상품내용 구역-->
+        <div>
+            <p>
+                <span style="font-size:26px">
+                    가장 희귀한 딱총나무 목재로 만들어졌습니다. 그 어떠한 지팡이보다 숙달하기가 까다롭지만 매우 뛰어난 재능이 있다면 강한 마법을 담고 있어 최고가 된 자에게 큰 힘을 실어 줍니다.
+                    <br>마법 지팡이가 마법을 발현하기 위한 필수 요소인 '심'은 유니콘의 털로 제작되었습니다. 유니콘의 털로 만든 심은 예로부터 기복이 적으며 어둠의 마법에 가장 물들지 않았고, 주인의 기량은 따지지 않고 충직하여 첫 주인의 소유로 남기를 고집하는 특성이 있습니다. 이로 인해 딱총나무의 단점을 많이 완화시키게 됩니다.
+                    <br>유니콘의 털로 심을 만들면 가장 강력한 지팡이를 만들어낼 수 없다는 말이 있지만, 저희는 딱총나무를 목재로 사용하였기에 충분히 보완하여 문제가 없습니다.
+                    <br>14인치(35.56cm) 입니다. 지팡이의 유연성은 상당히 탄력이 있습니다.
+                    <br>1인당 최대 5개까지 구매 가능합니다.
+                </span>
+            </p>
+        </div>
+    <!--환율 구역-->
+        <div>
+            <p style="font-size:22px;color:blue;">
+                달러-원 환율 :<span id="dollar-rate">1000</span>
+            </p>
+        </div>
+    <!--주문하기 구역-->
+        <div>
+            <h2><strong>주문하기</strong></h2>
+        </div>
+        <!--주문하기 주문자 성함-->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">주문자 성함</span>
+            </div>
+            <input type="text" class="form-control orderfont" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!--주문하기 수량-->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">　 수량　</label>
+            </div>
+            <select class="custom-select orderfont" id="inputGroupSelect01">
+                <option selected>----수량을 선택해 주세요----</option>
+                <option value="1">1개</option>
+                <option value="2">2개</option>
+                <option value="3">3개</option>
+                <option value="4">4개</option>
+                <option value="5">5개</option>
+            </select>
+        </div>
+        <!--주문하기 주소-->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">　 주소　</span>
+            </div>
+            <input type="text" class="form-control orderfont" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!--주문하기 전화번호-->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">전화번호☎</span>
+            </div>
+            <input type="text" class="form-control orderfont" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <!--주문하기 버튼-->
+        <div>
+            <button onclick="order()" type="button" class="btn btn-primary btn-lg orderbox"><span style="font-size:24px">주문하기</span></button>
+        </div>
+    </div>
+</body>
+
+</html>
